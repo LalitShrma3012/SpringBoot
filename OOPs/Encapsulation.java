@@ -43,3 +43,6 @@ public class Encapsulation {
         c1.setCapacity(2);
     }
 }
+
+
+// We can validate data in setters before setting them up. It ensures data consistency.
