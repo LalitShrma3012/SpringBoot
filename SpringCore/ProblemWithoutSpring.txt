@@ -1,0 +1,38 @@
+Classes are tightly coupled and highly dependable on each other, Makes unit testing and maintenance 
+difficult.
+
+
+How testing becomes difficult.
+e.g. 
+class Engine {
+    public void start(){
+        System.out.println("Engine Started!");
+    }
+}
+
+class Car{
+    private Engine engine = new Engine();
+    public void drive(){
+        engine.start();
+        System.out.println("Car is moving!!!");
+    }
+}
+
+
+Here, Car class is tightly coupled with Engine because it itself create engine inside it. (see line 14)
+
+if I want to test car.drive() only then it have to provide engine, but don't you think for unit testing 
+we should rely on a fake engine, rather than including a real engine in testing which can costs for real
+hardware, databases, api calling, etc. stuff.
+
+
+
+How maintenance becomes difficult.
+
+Let suppose after deployment, company decide to move on to electrict engine. but you're software is hardly
+coded for petrol/diesel engine. You have to redesign engine classes for electric engine and then needs changes
+Car class as well. So this will violates "Open Closed principle of SE", which says that classes are open for
+extension but closed for modification.
+
+Without spring these are the common problems a software need to face.
+
